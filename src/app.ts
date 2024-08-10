@@ -41,6 +41,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(hpp());
 app.use(compression());
+app.set('trust proxy', 1);
 
 
 app.use("/api/v1/items", itemRouter);
@@ -50,7 +51,7 @@ app.use("/api/v1/bills", billRouter);
 app.all('*', async (req, res) => {
     res.status(400).json({
         status: "error",
-        message: "Route not found!"
+        message: "Please navigate to /api-docs to access api docs"
     })
 });
 
