@@ -1,4 +1,5 @@
 import { OpenAPIV3 } from 'openapi-types';
+import config from '../config';
 
 const swaggerDocument: OpenAPIV3.Document = {
     openapi: '3.0.0',
@@ -9,7 +10,7 @@ const swaggerDocument: OpenAPIV3.Document = {
     },
     servers: [
         {
-            url: 'http://localhost:8000',
+            url: config.BASE_URL,
         },
     ],
     paths: {
